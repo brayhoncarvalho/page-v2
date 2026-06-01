@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&A Pay – Boleto de Pagamento" />
+  <title>C&A Pay — Boleto</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar simulada -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">14:49</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header com logo -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Voltar para opções de pagamento"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <h1 class="sub-header__title" aria-label="C&A Pay">
+      <img src="logo.png" alt="C&A Pay" style="height: 22px; width: auto; display: block; margin: 0 auto;" />
+    </h1>
+
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Fechar e voltar ao início"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Conteúdo principal rolável -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <div class="boleto-content">
+
+      <!-- Título da página -->
+      <h2 style="font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-5);">
+        Pagamento via boleto
+      </h2>
+
+      <!-- Valor da fatura -->
+      <p class="boleto-label">Valor da fatura</p>
+      <p class="boleto-value" aria-label="R$ 150,00">R$ 150,00</p>
+
+      <!-- Valor mínimo -->
+      <p class="boleto-label">Valor mínimo</p>
+      <p class="boleto-min-value" aria-label="R$ 25,00">R$ 25,00</p>
+
+      <!-- Alerta de prazo -->
+      <div class="alert-box alert-box--warning" role="alert">
+        <strong>Atenção!</strong> O pagamento da primeira parcela deverá ser realizado até o dia 15/06/2026.
+      </div>
+
+      <!-- Código de barras -->
+      <div class="barcode-section">
+        <p class="barcode-section__title">Código de barras</p>
+        <div class="boleto-code" aria-label="Código de barras do boleto" id="boleto-code-text">
+          23792.37205 90925.242167 09003.805109 1 00000000015000
+        </div>
+      </div>
+
+    </div><!-- /.boleto-content -->
+
+    <!-- CTAs -->
+    <div class="boleto-cta">
+
+      <button
+        class="btn-primary"
+        type="button"
+        id="btn-copiar"
+        aria-label="Copiar código de barras"
+        onclick="copiarCodigo(this)"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        Copiar código
+      </button>
+
+      <p class="boleto-hint">
+        Caso deseje receber a sua fatura por e-mail, clique no botão abaixo para receber em seu e-mail cadastrado.
+      </p>
+
+      <button
+        class="btn-secondary"
+        type="button"
+        aria-label="Enviar boleto por e-mail"
+        onclick="alert('Boleto enviado para o seu e-mail cadastrado!')"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Enviar por e-mail
+      </button>
+
+      <button
+        class="text-link"
+        type="button"
+        aria-label="Voltar para a tela inicial"
+        onclick="location.href='index.html'"
+      >
+        Voltar para home
+      </button>
+
+    </div><!-- /.boleto-cta -->
+
+  </main>
+
+</div><!-- /.app-shell -->
+
+<script src="scripts/app.js"></script>
+<script>
+  function copiarCodigo(btn) {
+    var codigo = document.getElementById('boleto-code-text').textContent.trim();
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(codigo).then(function() {
+        mostrarFeedback(btn);
+      });
+    } else {
+      // Fallback para contextos não-HTTPS
+      var el = document.createElement('textarea');
+      el.value = codigo;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      mostrarFeedback(btn);
+    }
+  }
+
+  function mostrarFeedback(btn) {
+    var original = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="20 6 9 17 4 12"/></svg> Código copiado!';
+    btn.disabled = true;
+    setTimeout(function() {
+      btn.innerHTML = original;
+      btn.disabled = false;
+    }, 2500);
+  }
+</script>
+</body>
+</html>

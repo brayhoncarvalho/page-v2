@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&amp;A Pay – Comprovante Pix" />
+  <title>C&A Pay — Comprovante</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">09:41</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <!-- Spacer para alinhar o título ao centro -->
+    <span style="width:44px; flex-shrink:0;" aria-hidden="true"></span>
+
+    <h1 class="sub-header__title">Comprovante</h1>
+
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Fechar e voltar ao início"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Conteúdo principal (scrollável) -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Hero de sucesso -->
+    <section id="comprovante-section" class="comprovante-hero" aria-label="Confirmação de pagamento">
+      <div class="comprovante-hero__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <p class="comprovante-hero__title">Pix enviado!</p>
+      <p class="comprovante-hero__amount" id="hero-amount" aria-label="Valor total enviado">R$&nbsp;—</p>
+      <p class="comprovante-hero__date" id="hero-date">—</p>
+    </section>
+
+    <!-- Recibo completo -->
+    <div class="receipt-card" role="region" aria-label="Recibo da transação">
+
+      <!-- Protocolo -->
+      <div class="receipt-protocol">
+        <span>Protocolo</span>
+        <strong id="r-protocol">—</strong>
+      </div>
+
+      <!-- Seção: Envio -->
+      <p class="receipt-section-title">Envio</p>
+      <div class="summary-row">
+        <span class="summary-row__label">De</span>
+        <span class="summary-row__value">Suzana R. Sales</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-row__label">Tipo</span>
+        <span class="summary-row__value">Pix Parcelado</span>
+      </div>
+
+      <hr class="receipt-divider" aria-hidden="true" />
+
+      <!-- Seção: Recebedor -->
+      <p class="receipt-section-title">Recebedor</p>
+      <div class="summary-row">
+        <span class="summary-row__label">Para</span>
+        <span class="summary-row__value">Brayhon Oliveira Carvalho</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-row__label">Chave</span>
+        <span class="summary-row__value">CPF · •••.493.219-••</span>
+      </div>
+
+      <hr class="receipt-divider" aria-hidden="true" />
+
+      <!-- Seção: Valores -->
+      <p class="receipt-section-title">Valores</p>
+      <div class="summary-row">
+        <span class="summary-row__label">Valor</span>
+        <span class="summary-row__value" id="r-valor">R$&nbsp;—</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-row__label">Parcelas</span>
+        <span class="summary-row__value" id="r-parcelas">—</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-row__label">Total pago</span>
+        <span class="summary-row__value summary-row__value--blue" id="r-total">R$&nbsp;—</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-row__label">1ª parcela</span>
+        <span class="summary-row__value" id="r-vencimento">—</span>
+      </div>
+
+    </div>
+
+    <div class="spacer-bottom"></div>
+
+  </main>
+
+  <!-- Ações -->
+  <div class="action-stack">
+
+    <button class="btn-secondary" type="button" id="btn-share">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="18" cy="5" r="3"/>
+        <circle cx="6" cy="12" r="3"/>
+        <circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      Compartilhar comprovante
+    </button>
+
+    <button
+      class="btn-primary"
+      type="button"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Ir para o início
+    </button>
+
+  </div>
+
+</div>
+
+<script src="scripts/pix.js"></script>
+</body>
+</html>

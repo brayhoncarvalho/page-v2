@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&A Pay – Início" />
+  <title>C&A Pay — Início</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar simulada -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">14:48</span>
+    <div class="status-bar__icons">
+      <!-- Sinal -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <!-- WiFi -->
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <!-- Bateria -->
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header" role="banner">
+    <div class="app-header__brand">
+      <!-- Logo C&A Pay completo -->
+      <div class="app-header__logo-wrapper" aria-label="C&A Pay">
+        <img src="logo.png" alt="C&A Pay" />
+      </div>
+    </div>
+
+    <div class="app-header__actions" role="toolbar" aria-label="Ações do cabeçalho">
+      <!-- Ocultar saldo -->
+      <button class="app-header__icon-btn" aria-label="Ocultar valores" id="btn-toggle-visibility">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+          <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        </svg>
+      </button>
+
+      <!-- Entrar / Transferir -->
+      <button class="app-header__icon-btn" aria-label="Transferir">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 3h6v6"/>
+          <path d="M10 14 21 3"/>
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        </svg>
+      </button>
+
+      <!-- Fechar / sair -->
+      <button class="app-header__icon-btn" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal rolável -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Saudação -->
+    <section aria-label="Saudação">
+      <div class="greeting">
+        <h1 class="greeting__text">Olá, Suzana R. Sales</h1>
+      </div>
+      <div class="section-divider" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- Fatura atual -->
+    <section aria-label="Fatura atual">
+      <a
+        href="fatura.html"
+        class="info-block"
+        role="button"
+        aria-label="Fatura atual R$ 150,00. Vencimento 15 de junho. Ver detalhes"
+      >
+        <div class="info-block__body">
+          <p class="info-block__title">
+            Fatura atual:
+            <span class="highlight" id="fatura-valor">R$ 150,00</span>
+          </p>
+          <p class="info-block__meta">
+            Vencimento: <span class="highlight" id="fatura-vencimento">15/06</span>
+          </p>
+          <p class="info-block__meta">
+            Melhor dia de compra: <span class="highlight">2</span>
+          </p>
+        </div>
+        <span class="info-block__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </span>
+      </a>
+      <div class="section-divider" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- Limites disponíveis -->
+    <section aria-label="Limites disponíveis">
+      <a
+        href="#"
+        class="limits-block"
+        role="button"
+        aria-label="Limites disponíveis. Compras: valores ocultados. Ver detalhes"
+      >
+        <div class="limits-block__header">
+          <h2 class="limits-block__title">Limites disponíveis</h2>
+          <span class="limits-block__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </div>
+        <div class="limits-block__row">
+          <span class="limits-block__icon" aria-hidden="true">
+            <!-- Ícone de cartão de crédito -->
+            <svg viewBox="0 0 24 24">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </span>
+          <span class="limits-block__label">Compras:</span>
+          <span class="limits-block__dots" id="limits-valor" aria-label="valor do limite">R$ 1.200,00</span>
+        </div>
+      </a>
+      <div class="section-divider" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- Pix Parcelado -->
+    <section aria-label="Pix Parcelado">
+      <a
+        href="pix-chave.html"
+        class="limits-block"
+        role="button"
+        aria-label="Pix Parcelado. Limite disponível: R$ 1.000,00. Ver detalhes"
+      >
+        <div class="limits-block__header">
+          <h2 class="limits-block__title">Pix Parcelado</h2>
+          <span class="limits-block__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </div>
+        <div class="limits-block__row">
+          <span class="limits-block__icon" aria-hidden="true">
+            <img src="assets/pix.png" alt="" style="width:20px;height:20px;display:block;filter:brightness(0) invert(40%);" />
+          </span>
+          <span class="limits-block__label">Limite disponível:</span>
+          <span class="limits-block__dots" id="pix-limite-valor" aria-label="limite do Pix Parcelado">R$ 1.000,00</span>
+        </div>
+      </a>
+      <div class="section-divider" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- Atalhos -->
+    <section class="section" aria-label="Atalhos">
+      <div class="section__header">
+        <h2 class="section__title">Atalhos</h2>
+      </div>
+      <div class="shortcuts">
+        <div class="shortcuts__scroll" role="list" aria-label="Atalhos rápidos">
+
+          <button class="shortcut-card" role="listitem" aria-label="Pagar fatura" onclick="location.href='fatura-pagar.html'">
+            <span class="shortcut-card__label">Pagar<br>fatura</span>
+          </button>
+
+          <button class="shortcut-card" role="listitem" aria-label="Gerar cartão virtual">
+            <span class="shortcut-card__label">Gerar cartão<br>virtual</span>
+          </button>
+
+          <button class="shortcut-card" role="listitem" aria-label="Alterar senha C&A pay">
+            <span class="shortcut-card__label">Alterar senha<br>C&A pay</span>
+          </button>
+
+          <button class="shortcut-card" role="listitem" aria-label="Limite disponível">
+            <span class="shortcut-card__label">Limite<br>dis&shy;ponível</span>
+          </button>
+
+          <button class="shortcut-card" role="listitem" aria-label="Parcelar fatura" onclick="location.href='fatura-pagar.html'">
+            <span class="shortcut-card__label">Parcelar<br>fatura</span>
+          </button>
+
+        </div>
+      </div>
+      <div class="section-divider" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- Parceiros C&A Pay -->
+    <section class="section" aria-label="Parceiros C&A Pay">
+      <div class="section__header">
+        <h2 class="section__title">Parceiros C&A Pay</h2>
+        <span class="badge" aria-label="Novidade">Novidade</span>
+      </div>
+      <div class="partners">
+        <div
+          class="partners__scroll"
+          id="partners-scroll"
+          role="list"
+          aria-label="Parceiros disponíveis"
+        >
+
+          <!-- Foto 1: banner01.webp -->
+          <button class="partner-card" role="listitem" aria-label="C&A - ver oferta" data-slide="0">
+            <img
+              src="assets/banner01.webp"
+              alt="Loja C&A"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </button>
+
+          <!-- Foto 2: banner02.jpg -->
+          <button class="partner-card" role="listitem" aria-label="C&A Pay - ver oferta" data-slide="1">
+            <img
+              src="assets/banner02.jpg"
+              alt="C&A Pay"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </button>
+
+          <!-- Foto 3: banner03.jpg -->
+          <button class="partner-card" role="listitem" aria-label="Cartão C&A Pay - ver oferta" data-slide="2">
+            <img
+              src="assets/banner03.jpg"
+              alt="Cartão C&A Pay"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </button>
+
+        </div>
+
+        <!-- Dots indicadores -->
+        <div class="partners__dots" id="partners-dots" aria-hidden="true">
+          <span class="partners__dot partners__dot--active"></span>
+          <span class="partners__dot"></span>
+          <span class="partners__dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer-bottom" aria-hidden="true"></div>
+
+  </main><!-- /app-content -->
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegação principal">
+    <a
+      href="index.html"
+      class="bottom-nav__item bottom-nav__item--active"
+      aria-current="page"
+      aria-label="Início"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Início</span>
+    </a>
+
+    <a
+      href="fatura.html"
+      class="bottom-nav__item"
+      aria-label="Fatura"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6"  x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Fatura</span>
+    </a>
+
+    <a
+      href="servicos.html"
+      class="bottom-nav__item"
+      aria-label="Serviços"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="3"  y="3"  width="7" height="7" rx="1"/>
+          <rect x="14" y="3"  width="7" height="7" rx="1"/>
+          <rect x="3"  y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Serviços</span>
+    </a>
+
+    <a
+      href="ajuda.html"
+      class="bottom-nav__item"
+      aria-label="Ajuda"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Ajuda</span>
+    </a>
+
+    <a
+      href="perfil.html"
+      class="bottom-nav__item"
+      aria-label="Perfil"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Perfil</span>
+    </a>
+  </nav>
+
+</div><!-- /app-shell -->
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

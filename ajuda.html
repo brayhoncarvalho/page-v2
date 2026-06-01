@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&A Pay – Ajuda" />
+  <title>C&A Pay — Ajuda</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar simulada -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">14:49</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header" role="banner">
+    <div class="app-header__brand">
+      <div class="app-header__logo-wrapper" aria-label="C&A Pay">
+        <img src="logo.png" alt="C&A Pay" />
+      </div>
+    </div>
+    <div class="app-header__actions" role="toolbar" aria-label="Ações do cabeçalho">
+      <button class="app-header__icon-btn" aria-label="Fechar" onclick="location.href='index.html'">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal rolável -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Título da página -->
+    <div class="page-title">
+      <h1 class="page-title__text">Ajuda</h1>
+    </div>
+
+    <!-- FAQ -->
+    <section aria-label="Perguntas frequentes">
+      <div class="faq-list" id="faq-list">
+
+        <!-- 1. Como acessar minha fatura -->
+        <div class="faq-item" id="faq-1">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-1-answer"
+            onclick="toggleFaq('faq-1')"
+          >
+            <span class="faq-item__question-text">Como acessar minha fatura do C&A Pay?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-1-answer" role="region" aria-labelledby="faq-1">
+            <div class="faq-item__answer-inner">
+              <p>Após revisar os detalhes da fatura, clique na opção <strong>"Pagar Fatura"</strong>. Escolha a forma de pagamento desejada: boleto bancário ou parcelamento da fatura. Siga as instruções na tela para concluir o processo de pagamento. Após a confirmação do pagamento, sua fatura será liquidada e você receberá a confirmação por e-mail.</p>
+              <p>Pronto! Agora você pode acessar e pagar sua fatura do C&A Pay de forma rápida e fácil diretamente pelo app C&A.</p>
+              <p>Você também pode solicitar a segunda via da fatura do C&A Pay através do WhatsApp do C&A Pay, no número <a href="https://wa.me/551135852950" target="_blank" rel="noopener">(11) 3585-2950</a>. Ou se preferir, você também pode solicitar no nosso chat on-line (segunda a sábado — 9h às 21h40 / domingos 10h às 20h).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Cartão físico -->
+        <div class="faq-item" id="faq-2">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-2-answer"
+            onclick="toggleFaq('faq-2')"
+          >
+            <span class="faq-item__question-text">Vou receber um cartão físico?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-2-answer" role="region">
+            <div class="faq-item__answer-inner">
+              <p>Não, você não receberá um cartão físico em casa. Todas as suas compras são feitas nas lojas C&A através da sua <strong>biometria</strong> ou no site e app C&A — neste caso, é necessário gerar o CVV no app C&A.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Vantagens -->
+        <div class="faq-item" id="faq-3">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-3-answer"
+            onclick="toggleFaq('faq-3')"
+          >
+            <span class="faq-item__question-text">Quando poderei utilizar as vantagens do C&A Pay?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-3-answer" role="region">
+            <div class="faq-item__answer-inner">
+              <p>Após a aprovação do seu crédito, você poderá usufruir de todas as vantagens e benefícios exclusivos que só o C&A Pay oferece:</p>
+              <p><strong>Nas lojas físicas:</strong> 30% de cashback em compras acima de R$ 50 com C&A Pay ou Cartão C&A, que poderá ser usado na próxima compra. Validade de 60 dias, uso exclusivo em loja.</p>
+              <p><strong>No site ou app:</strong> Desconto de 10% levando 5 peças ou mais das categorias moda, beleza, óculos e relógios, ou em valor acima de R$ 400. Válido para produtos vendidos e entregues pela C&A. Descontos não cumulativos.</p>
+              <p><strong>Regras de utilização:</strong> Os descontos não são válidos para compra de eletrônicos, smartwatch e itens em promoção, não são cumulativos com outras campanhas ou promoções.</p>
+              <p>Além disso, você contará com parcelamentos exclusivos e todos os benefícios do nível <strong>AMA</strong> do programa de relacionamento da C&A. Saiba mais em <a href="https://www.cea.com.br/evc-programa-de-relacionamento" target="_blank" rel="noopener">cea.com.br/evc-programa-de-relacionamento</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Anuidade -->
+        <div class="faq-item" id="faq-4">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-4-answer"
+            onclick="toggleFaq('faq-4')"
+          >
+            <span class="faq-item__question-text">O C&A Pay tem anuidade?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-4-answer" role="region">
+            <div class="faq-item__answer-inner">
+              <p>Não, o C&A Pay é <strong>isento de anuidade</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Crédito pré-aprovado -->
+        <div class="faq-item" id="faq-5">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-5-answer"
+            onclick="toggleFaq('faq-5')"
+          >
+            <span class="faq-item__question-text">O que é crédito pré-aprovado?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-5-answer" role="region">
+            <div class="faq-item__answer-inner">
+              <p>O crédito pré-aprovado significa que você possui um crédito <strong>previamente aprovado</strong> conosco. O valor será informado após o cadastro no App C&A e efetivação do cartão digital.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Negociação de dívidas -->
+        <div class="faq-item" id="faq-6">
+          <button
+            class="faq-item__question"
+            type="button"
+            aria-expanded="false"
+            aria-controls="faq-6-answer"
+            onclick="toggleFaq('faq-6')"
+          >
+            <span class="faq-item__question-text">Como negociar suas dívidas do C&A Pay?</span>
+            <span class="faq-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="faq-item__answer" id="faq-6-answer" role="region">
+            <div class="faq-item__answer-inner">
+              <p>Você pode negociar em nosso portal: <a href="https://negocie.ceapay.com.br/" target="_blank" rel="noopener">negocie.ceapay.com.br</a></p>
+              <p>Ou conversar pelo WhatsApp oficial:</p>
+              <p>
+                <a href="https://wa.me/551135852950" target="_blank" rel="noopener"><strong>(11) 3585-2950</strong></a> — se seu débito estiver em atraso de até 67 dias.<br/>
+                <a href="https://wa.me/551135852990" target="_blank" rel="noopener"><strong>(11) 3585-2990</strong></a> — se seu débito estiver em atraso superior a 68 dias.
+              </p>
+              <p>Se preferir, ligue: <strong>4090-1001</strong> (capitais e regiões metropolitanas) ou <strong>0800 000 4335</strong> (demais localidades). Atendimento de segunda a sábado, das 9h às 21h40 e domingo, das 10h às 20h — inclusive nos feriados nacionais.</p>
+              <p><strong>Ouvidoria:</strong> 0800 374 6012 — segunda a sexta, das 10h às 16h, exceto feriados nacionais.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Canais de atendimento -->
+    <section class="contact-section" aria-label="Canais de atendimento">
+      <h2 class="contact-section__title">Canais de atendimento</h2>
+
+      <!-- WhatsApp -->
+      <div class="contact-card">
+        <p class="contact-card__label">WhatsApp C&A Pay</p>
+        <p class="contact-card__value">(11) 3585-2950</p>
+        <p class="contact-card__detail">Segunda a sábado, 9h às 21h40 / Domingos 10h às 20h</p>
+        <a
+          href="https://wa.me/551135852950"
+          class="contact-card__link"
+          target="_blank"
+          rel="noopener"
+          aria-label="Abrir WhatsApp C&A Pay"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          Conversar no WhatsApp
+        </a>
+      </div>
+
+      <!-- Central de atendimento -->
+      <div class="contact-card">
+        <p class="contact-card__label">Central de atendimento</p>
+        <p class="contact-card__value">4090 1001</p>
+        <p class="contact-card__detail">Capitais e Regiões Metropolitanas</p>
+        <p class="contact-card__value--secondary">0800 000 4335</p>
+        <p class="contact-card__detail">Demais localidades — segunda a sábado, 9h às 21h40 / domingos e feriados nacionais, 10h às 20h</p>
+      </div>
+
+      <!-- Ouvidoria -->
+      <div class="contact-card">
+        <p class="contact-card__label">Ouvidoria</p>
+        <p class="contact-card__value">0800 374 6012</p>
+        <p class="contact-card__detail">Segunda a sexta, das 10h às 16h, exceto feriados nacionais</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegação principal">
+    <a
+      href="index.html"
+      class="bottom-nav__item"
+      aria-label="Início"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Início</span>
+    </a>
+
+    <a
+      href="fatura.html"
+      class="bottom-nav__item"
+      aria-label="Fatura"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6"  x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Fatura</span>
+    </a>
+
+    <a
+      href="servicos.html"
+      class="bottom-nav__item"
+      aria-label="Serviços"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="3"  y="3"  width="7" height="7" rx="1"/>
+          <rect x="14" y="3"  width="7" height="7" rx="1"/>
+          <rect x="3"  y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Serviços</span>
+    </a>
+
+    <a
+      href="ajuda.html"
+      class="bottom-nav__item bottom-nav__item--active"
+      aria-current="page"
+      aria-label="Ajuda"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Ajuda</span>
+    </a>
+
+    <a
+      href="perfil.html"
+      class="bottom-nav__item"
+      aria-label="Perfil"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Perfil</span>
+    </a>
+  </nav>
+
+</div><!-- /.app-shell -->
+
+<script src="scripts/app.js"></script>
+<script>
+  function toggleFaq(id) {
+    var item = document.getElementById(id);
+    var btn  = item.querySelector('.faq-item__question');
+    var isOpen = item.classList.contains('faq-item--open');
+
+    // Fecha todos
+    document.querySelectorAll('.faq-item--open').forEach(function(el) {
+      el.classList.remove('faq-item--open');
+      el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+    });
+
+    // Abre o clicado (se estava fechado)
+    if (!isOpen) {
+      item.classList.add('faq-item--open');
+      btn.setAttribute('aria-expanded', 'true');
+      // Scroll suave para não ficar cortado pelo header
+      setTimeout(function() {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+</script>
+</body>
+</html>

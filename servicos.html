@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&A Pay – Serviços" />
+  <title>C&A Pay — Serviços</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar simulada -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">14:49</span>
+    <div class="status-bar__icons">
+      <!-- Sinal -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <!-- WiFi -->
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <!-- Bateria -->
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header" role="banner">
+    <div class="app-header__brand">
+      <!-- Logo C&A Pay completo -->
+      <div class="app-header__logo-wrapper" aria-label="C&A Pay">
+        <img src="logo.png" alt="C&A Pay" />
+      </div>
+    </div>
+
+    <div class="app-header__actions" role="toolbar" aria-label="Ações do cabeçalho">
+      <!-- Fechar / sair -->
+      <button class="app-header__icon-btn" aria-label="Fechar" onclick="history.back()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal rolável -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Título da página -->
+    <div class="page-title">
+      <h1 class="page-title__text">Serviços</h1>
+    </div>
+
+    <!-- Lista de Serviços -->
+    <section aria-label="Lista de serviços disponíveis">
+      <nav class="service-list" role="list">
+
+        <!-- Seguros -->
+        <a
+          href="#"
+          class="service-item"
+          role="listitem"
+          aria-label="Seguros"
+        >
+          <div class="service-item__content">
+            <span class="service-item__label">Seguros</span>
+          </div>
+          <span class="service-item__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </a>
+
+        <!-- Empréstimos -->
+        <a
+          href="#"
+          class="service-item"
+          role="listitem"
+          aria-label="Empréstimos"
+        >
+          <div class="service-item__content">
+            <span class="service-item__label">Empréstimos</span>
+          </div>
+          <span class="service-item__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </a>
+
+        <!-- PIX Parcelado com badge Novidade -->
+        <a
+          href="pix-chave.html"
+          class="service-item"
+          role="listitem"
+          aria-label="Pix Parcelado - Novidade"
+        >
+          <div class="service-item__content">
+            <span class="service-item__label">Pix Parcelado</span>
+          </div>
+          <div class="service-item__badge-wrapper">
+            <span class="badge" aria-label="Novidade">Novidade</span>
+            <span class="service-item__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Parceiros -->
+        <a
+          href="#"
+          class="service-item"
+          role="listitem"
+          aria-label="Parceiros"
+        >
+          <div class="service-item__content">
+            <span class="service-item__label">Parceiros</span>
+          </div>
+          <span class="service-item__chevron" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+        </a>
+
+      </nav>
+      <div class="section-divider section-divider--full" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <div class="spacer-bottom" aria-hidden="true"></div>
+
+  </main><!-- /app-content -->
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegação principal">
+    <a
+      href="index.html"
+      class="bottom-nav__item"
+      aria-label="Início"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Início</span>
+    </a>
+
+    <a
+      href="fatura.html"
+      class="bottom-nav__item"
+      aria-label="Fatura"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6"  x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Fatura</span>
+    </a>
+
+    <a
+      href="servicos.html"
+      class="bottom-nav__item bottom-nav__item--active"
+      aria-current="page"
+      aria-label="Serviços"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="3"  y="3"  width="7" height="7" rx="1"/>
+          <rect x="14" y="3"  width="7" height="7" rx="1"/>
+          <rect x="3"  y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Serviços</span>
+    </a>
+
+    <a
+      href="ajuda.html"
+      class="bottom-nav__item"
+      aria-label="Ajuda"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Ajuda</span>
+    </a>
+
+    <a
+      href="perfil.html"
+      class="bottom-nav__item"
+      aria-label="Perfil"
+    >
+      <span class="bottom-nav__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </span>
+      <span class="bottom-nav__label">Perfil</span>
+    </a>
+  </nav>
+
+</div><!-- /app-shell -->
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

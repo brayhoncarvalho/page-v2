@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&amp;A Pay – Pix Parcelado" />
+  <title>C&A Pay — Pix Parcelado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">09:41</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Voltar para Serviços"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <h1 class="sub-header__title">Pix Parcelado</h1>
+
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Fechar e voltar ao início"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Destinatário pré-preenchido -->
+    <p class="recipient-label">Recebedor</p>
+    <div class="recipient-card" role="region" aria-label="Destinatário do Pix">
+      <div class="recipient-card__avatar" style="background:#0A0A0A;" aria-hidden="true">
+        <span style="color:#fff;font-size:20px;font-weight:700;line-height:1;">B</span>
+      </div>
+      <div class="recipient-card__info">
+        <span class="recipient-card__name">Brayhon Oliveira Carvalho</span>
+        <span class="recipient-card__key">CPF: •••.493.219-••</span>
+        <span class="recipient-card__bank">Pessoa Física</span>
+      </div>
+    </div>
+
+    <!-- Display de valor -->
+    <div class="value-input-section">
+      <span class="value-input-label" id="value-label">Valor a enviar</span>
+      <div
+        class="value-input-display"
+        id="value-display"
+        role="status"
+        aria-labelledby="value-label"
+        aria-live="polite"
+      >R$&nbsp;500,00<span class="value-input-cursor" aria-hidden="true"></span></div>
+    </div>
+
+    <!-- Limite disponível -->
+    <div class="pix-limit-hint" id="pix-limit-hint" aria-live="polite">
+      Limite disponível: <strong>R$ 1.000,00</strong>
+    </div>
+
+    <!-- Teclado numérico -->
+    <div class="numpad" role="group" aria-label="Teclado numérico">
+      <button class="numpad__key" type="button" data-key="1" aria-label="1">1</button>
+      <button class="numpad__key" type="button" data-key="2" aria-label="2">2</button>
+      <button class="numpad__key" type="button" data-key="3" aria-label="3">3</button>
+      <button class="numpad__key" type="button" data-key="4" aria-label="4">4</button>
+      <button class="numpad__key" type="button" data-key="5" aria-label="5">5</button>
+      <button class="numpad__key" type="button" data-key="6" aria-label="6">6</button>
+      <button class="numpad__key" type="button" data-key="7" aria-label="7">7</button>
+      <button class="numpad__key" type="button" data-key="8" aria-label="8">8</button>
+      <button class="numpad__key" type="button" data-key="9" aria-label="9">9</button>
+      <span  class="numpad__key numpad__key--empty" aria-hidden="true"></span>
+      <button class="numpad__key" type="button" data-key="0" aria-label="0">0</button>
+      <button class="numpad__key numpad__key--delete" type="button" data-key="del" aria-label="Apagar dígito">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+          <line x1="18" y1="9" x2="12" y2="15"/>
+          <line x1="12" y1="9" x2="18" y2="15"/>
+        </svg>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- CTA fixo no rodapé -->
+  <div class="cta-footer">
+    <button class="btn-primary" type="button" id="btn-ver-parcelas">
+      Ver parcelas
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<script src="scripts/pix.js"></script>
+</body>
+</html>

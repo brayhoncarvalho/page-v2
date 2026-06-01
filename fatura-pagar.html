@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&A Pay – Pagar Fatura" />
+  <title>C&A Pay — Pagar Fatura</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar simulada -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">14:49</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header com logo -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Voltar para fatura"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <h1 class="sub-header__title" aria-label="C&A Pay">
+      <img src="logo.png" alt="C&A Pay" style="height: 22px; width: auto; display: block; margin: 0 auto;" />
+    </h1>
+
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Fechar e voltar ao início"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Conteúdo principal rolável -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Cabeçalho com valor da fatura -->
+    <div class="fatura-pagar-header">
+      <p class="fatura-pagar-header__title">Fatura atual: R$ 150,00</p>
+      <p class="fatura-pagar-header__subtitle">Vencimento: 15/06</p>
+    </div>
+
+    <!-- Opções de pagamento -->
+    <div class="pay-options-section">
+      <p class="pay-options-section__title">Como prefere pagar sua fatura?</p>
+      <p class="pay-options-section__subtitle">
+        Escolha um plano de parcelas e pague a 1ª como entrada para confirmar o parcelamento
+      </p>
+
+      <!-- Opção: Pagamento Total -->
+      <a
+        href="fatura-boleto.html"
+        class="pay-option"
+        aria-label="Pagamento Total — Pagamento mínimo de R$ 25,00"
+      >
+        <span class="pay-option__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </span>
+        <span class="pay-option__content">
+          <span class="pay-option__label">Pagamento Total</span>
+          <span class="pay-option__sublabel">Pagamento mínimo de R$ 25,00</span>
+        </span>
+        <span class="pay-option__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </span>
+      </a>
+
+      <!-- Opção: Parcelar fatura -->
+      <button
+        class="pay-option"
+        type="button"
+        aria-label="Parcelar fatura — Até 10x de R$ 16,68"
+        onclick="alert('Em breve: parcelamento de fatura.')"
+      >
+        <span class="pay-option__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </span>
+        <span class="pay-option__content">
+          <span class="pay-option__label">Parcelar fatura</span>
+          <span class="pay-option__sublabel">Até 10x de R$ 16,68</span>
+        </span>
+        <span class="pay-option__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </span>
+      </button>
+    </div>
+
+    <!-- Acordeão informativo -->
+    <div class="accordion-list" role="list" aria-label="Informações adicionais">
+      <button class="accordion-item" type="button" aria-expanded="false" role="listitem">
+        <span class="accordion-item__label">Orientações sobre pagamento e taxas</span>
+        <span class="accordion-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+
+      <button class="accordion-item" type="button" aria-expanded="false" role="listitem">
+        <span class="accordion-item__label">Condições de pagamento</span>
+        <span class="accordion-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+    </div>
+
+  </main>
+
+</div><!-- /.app-shell -->
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

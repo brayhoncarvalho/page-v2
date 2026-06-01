@@ -1,0 +1,131 @@
+/* ============================================================
+   CEA Pay — Design Tokens
+   Fonte primária: prints da interface real do app C&A Pay
+   ============================================================ */
+
+:root {
+  /* --- Cores de Marca --- */
+  --color-brand-blue:       #1A56FF;
+  --color-brand-blue-hover: #1245E0;
+  --color-brand-blue-light: #EBF0FF;
+  --color-brand-blue-mid:   #D0DCFF;
+
+  /* --- Texto --- */
+  --color-text-primary:   #0A0A0A;
+  --color-text-secondary: #666666;
+  --color-text-tertiary:  #999999;
+  --color-text-blue:      #1A56FF;
+  --color-text-white:     #FFFFFF;
+
+  /* --- Superfícies --- */
+  --color-bg-app:         #FFFFFF;
+  --color-bg-section:     #FAFAFA;
+  --color-bg-bottomnav:   #FFFFFF;
+  --color-bg-pill-active: #F0F2F8;
+
+  /* --- Bordas e Divisórias --- */
+  --color-divider:        #E8E8E8;
+  --color-border-subtle:  #ECECEC;
+
+  /* --- Card Atalho (fundo azul vivo) --- */
+  --color-shortcut-bg:    #1A56FF;
+  --color-shortcut-text:  #FFFFFF;
+
+  /* --- Badge Novidade --- */
+  --color-badge-bg:       #1A56FF;
+  --color-badge-text:     #FFFFFF;
+
+  /* --- Status Bar / Header overlay --- */
+  --color-statusbar:      #FFFFFF;
+
+  /* ============================================================
+     Tipografia
+     Print mostra sans-serif com aparência de Roboto/Inter,
+     semibold nos títulos, regular no corpo, uppercase nos labels
+     ============================================================ */
+  --font-family-base: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'Roboto Mono', 'JetBrains Mono', monospace;
+
+  /* Tamanhos */
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 15px;
+  --font-size-md:   16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  22px;
+  --font-size-3xl:  26px;
+
+  /* Pesos */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line heights */
+  --line-height-tight:  1.2;
+  --line-height-base:   1.4;
+  --line-height-loose:  1.6;
+
+  /* Letter spacing para labels uppercase */
+  --letter-spacing-label: 0.06em;
+
+  /* ============================================================
+     Espaçamento (base 4px)
+     ============================================================ */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  28px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ============================================================
+     Border Radius
+     ============================================================ */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* ============================================================
+     Sombras
+     Print tem sombras muito sutis — preferência de borda+divider
+     ============================================================ */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-bottomnav: 0 -1px 0 var(--color-divider);
+
+  /* ============================================================
+     Layout Mobile
+     ============================================================ */
+  --max-width-mobile:    430px;
+  --header-height:       56px;
+  --bottomnav-height:    72px;
+  --safe-area-bottom:    env(safe-area-inset-bottom, 0px);
+  --content-padding-x:   var(--space-4);
+
+  /* ============================================================
+     Motion
+     ============================================================ */
+  --motion-duration-fast:   120ms;
+  --motion-duration-base:   200ms;
+  --motion-easing:          cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tap highlight */
+  --color-tap-highlight: rgba(26, 86, 255, 0.08);
+}
+
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: 0.01ms;
+    --motion-duration-base: 0.01ms;
+  }
+}
