@@ -118,6 +118,12 @@ ul, ol {
   min-width: 26px;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .status-bar {
+    display: none;
+  }
+}
+
 /* ============================================================
    Header do App
    ============================================================ */

@@ -1,4 +1,4 @@
-# CEA
+# Estudo
 
 Este projeto foi criado apenas para fins de estudo e prática de front-end.
 
