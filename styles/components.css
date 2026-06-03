@@ -2102,13 +2102,15 @@
   align-items: flex-start;
   gap: var(--space-3, 12px);
   padding: var(--space-4, 16px);
-  background: var(--color-brand-blue-light, #EBF0FF);
+  background: #ECECEC;
   border-radius: 12px;
-  border: 1px solid rgba(26, 86, 255, 0.34);
-  border-left: 3px solid var(--color-brand-blue, #1A56FF);
+  border: 1px solid #B8B8B8;
   cursor: pointer;
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
   margin-bottom: var(--space-4, 16px);
+}
+.adesao-checkbox--centered {
+  align-items: center;
 }
 .adesao-checkbox:has(input:checked) {
   border-color: var(--color-brand-blue, #1A56FF);
@@ -2125,7 +2127,7 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  border: 2px solid rgba(26, 86, 255, 0.52);
+  border: 2px solid #767676;
   background: #fff;
   display: flex;
   align-items: center;
@@ -2133,6 +2135,9 @@
   flex-shrink: 0;
   transition: all 0.18s ease;
   margin-top: 1px;
+}
+.adesao-checkbox--centered .adesao-checkbox__box {
+  margin-top: 0;
 }
 .adesao-checkbox:has(input:checked) .adesao-checkbox__box {
   background: var(--color-brand-blue, #1A56FF);
@@ -2157,6 +2162,10 @@
   color: var(--color-text-primary, #0A0A0A);
   line-height: 1.5;
   flex: 1;
+  padding-top: 2px;
+}
+.adesao-checkbox--centered .adesao-checkbox__label {
+  padding-top: 0;
 }
 
 @media (max-width: 380px) {
