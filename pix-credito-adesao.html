@@ -89,23 +89,7 @@
           </svg>
         </span>
         <div class="benefit-item__content">
-          <p class="benefit-item__title">Envie Pix agora, pague depois</p>
-          <p class="benefit-item__desc">Use seu limite C&A Pay para enviar Pix mesmo sem saldo disponível.</p>
-        </div>
-      </div>
-
-      <div class="benefit-item">
-        <span class="benefit-item__icon" aria-hidden="true">
-          <!-- Ícone: calendário -->
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </span>
-        <div class="benefit-item__content">
-          <p class="benefit-item__title">Parcele em até 12x</p>
+          <p class="benefit-item__title">Envie Pix agora e parcele em até 12x</p>
           <p class="benefit-item__desc">Escolha o número de parcelas que cabe no seu bolso na hora de enviar.</p>
         </div>
       </div>
@@ -138,38 +122,13 @@
 
     </div>
 
-    <!-- Aviso: criação de conta -->
-   <!-- <div role="note" style="
-      margin: 20px 20px 0;
-      padding: 14px 16px;
-      background: var(--color-brand-blue-light, #EBF0FF);
-      border-left: 3px solid var(--color-brand-blue, #1A56FF);
-      border-radius: 8px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    ">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="
-        width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
-        fill: none; stroke: var(--color-brand-blue, #1A56FF);
-        stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-      ">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-text-primary);">
-        Ao ativar, <strong>criaremos uma conta Pix Crédito</strong> vinculada ao seu CPF cadastrado no C&A Pay. Ela será usada exclusivamente para processar seus envios de Pix parcelado.
-      </p>
-    </div>-->
-
-    <!-- Checkbox de aceite dos termos -->
+    <!-- Aceites obrigatórios -->
     <div style="padding: 20px 20px 8px;">
       <label class="adesao-checkbox" for="aceite-termos">
         <input
           type="checkbox"
           id="aceite-termos"
-          aria-label="Li e concordo com os Termos de Uso do Pix Crédito"
+          aria-label="Li e aceito os Termos e condições de uso do C&A Pay"
         />
         <span class="adesao-checkbox__box" aria-hidden="true">
           <svg viewBox="0 0 12 12">
@@ -177,10 +136,26 @@
           </svg>
         </span>
         <span class="adesao-checkbox__label">
-          Li e concordo com os
-          <a href="pix-credito-termos.html" class="terms-link" onclick="event.stopPropagation()">
-            Termos de Uso do Pix Crédito
+          Li e aceito os
+          <a href="https://images.cea-ecommerce.com.br/ceapay/ceapay2022.08.23-CeA-Pay-Sumario-Termos-e-Condicoes-Gerais-de-Uso-do-CeA-Pay-SIR-v2.pdf" target="_blank" rel="noopener noreferrer" class="terms-link" onclick="event.stopPropagation()">
+            Termos e condições de uso do C&amp;A Pay
           </a>
+        </span>
+      </label>
+
+      <label class="adesao-checkbox" for="aceite-conta">
+        <input
+          type="checkbox"
+          id="aceite-conta"
+          aria-label="Autorizo a abertura da conta digital necessária para usar o Pix Crédito"
+        />
+        <span class="adesao-checkbox__box" aria-hidden="true">
+          <svg viewBox="0 0 12 12">
+            <polyline points="2 6 5 9 10 3"/>
+          </svg>
+        </span>
+        <span class="adesao-checkbox__label">
+          Autorizo a abertura de uma conta digital vinculada ao meu CPF cadastrado no C&amp;A Pay para disponibilização do Pix Crédito.
         </span>
       </label>
     </div>
@@ -212,11 +187,17 @@
 <script src="scripts/app.js"></script>
 <script>
   (function () {
-    var checkbox = document.getElementById('aceite-termos');
+    var checkboxTermos = document.getElementById('aceite-termos');
+    var checkboxConta = document.getElementById('aceite-conta');
     var btnAtivar = document.getElementById('btn-ativar');
+    var checkboxes = [checkboxTermos, checkboxConta].filter(Boolean);
 
     function sincronizarBotao() {
-      if (checkbox.checked) {
+      var todosAceitos = checkboxes.length > 0 && checkboxes.every(function (checkbox) {
+        return checkbox.checked;
+      });
+
+      if (todosAceitos) {
         btnAtivar.disabled = false;
         btnAtivar.removeAttribute('aria-disabled');
         btnAtivar.style.opacity = '1';
@@ -233,7 +214,9 @@
     sincronizarBotao();
     window.addEventListener('pageshow', sincronizarBotao);
 
-    checkbox.addEventListener('change', sincronizarBotao);
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', sincronizarBotao);
+    });
 
     btnAtivar.addEventListener('click', function () {
       if (btnAtivar.disabled) return;

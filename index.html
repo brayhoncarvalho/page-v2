@@ -159,7 +159,7 @@
         aria-label="Pix Crédito. Limite disponível: R$ 1.000,00. Ver detalhes"
       >
         <div class="limits-block__header">
-          <h2 class="limits-block__title">Pix Crédito</h2>
+          <h2 class="limits-block__title">Pix Crédito <span class="badge badge--inline" aria-label="Novo produto">Novo</span></h2>
           <span class="limits-block__chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
@@ -416,48 +416,82 @@
     var btnOpen     = document.getElementById('btn-pix-credito');
     var btnFechar   = document.getElementById('btn-fechar-modal');
 
-    /* ----- Estado visual do card ----- */
-    var ativo = localStorage.getItem(STORAGE_KEY) === 'true';
+    function estaAtivo() {
+      return localStorage.getItem(STORAGE_KEY) === 'true';
+    }
 
-    if (btnOpen && !ativo) {
-      // Troca ícone para cadeado
+    function formatarLimite(cents) {
+      return 'R$\u00a0' + (cents / 100).toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function renderizarCardPixCredito() {
+      if (!btnOpen) return;
+
       var iconEl = btnOpen.querySelector('.limits-block__icon');
-      if (iconEl) {
+      var labelEl = btnOpen.querySelector('.limits-block__label');
+      var valorEl = document.getElementById('pix-limite-valor');
+      var ativo = estaAtivo();
+
+      if (!iconEl || !labelEl || !valorEl) return;
+
+      if (!ativo) {
         iconEl.innerHTML =
           '<svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block;' +
-          'stroke:#6b7280;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">' +
+          'stroke:#1A56FF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">' +
           '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>' +
           '<path d="M7 11V7a5 5 0 0 1 10 0v4"/>' +
           '</svg>';
-      }
-      // Troca label e valor
-      var labelEl = btnOpen.querySelector('.limits-block__label');
-      var valorEl = document.getElementById('pix-limite-valor');
-      if (labelEl) labelEl.textContent = 'Inativo';
-      if (valorEl) {
+        labelEl.textContent = 'Inativo';
         valorEl.textContent = 'Toque para ativar';
         valorEl.removeAttribute('aria-label');
+        btnOpen.setAttribute('aria-label', 'Pix Crédito. Inativo. Toque para ativar.');
+        return;
       }
-      // Atualiza aria-label do card
-      btnOpen.setAttribute('aria-label', 'Pix Crédito. Inativo. Toque para ativar.');
+
+      var stored = parseInt(localStorage.getItem('ceapay_pix_limit') || '100000', 10);
+      var limitCents = isNaN(stored) || stored < 0 ? 100000 : stored;
+
+      iconEl.innerHTML = '<img src="assets/pix.png" alt="" style="width:20px;height:20px;display:block;filter:brightness(0) invert(40%);" />';
+      labelEl.textContent = 'Limite disponível:';
+      valorEl.textContent = formatarLimite(limitCents);
+      valorEl.setAttribute('aria-label', 'limite do Pix Crédito');
+      btnOpen.setAttribute('aria-label', 'Pix Crédito. Limite disponível: ' + formatarLimite(limitCents) + '. Ver detalhes');
     }
 
+    renderizarCardPixCredito();
+
     function abrirModal() {
+      if (!modal || estaAtivo()) return;
       modal.classList.add('is-open');
       modal.removeAttribute('aria-hidden');
       document.body.style.overflow = 'hidden';
     }
 
     function fecharModal() {
+      if (!modal) return;
       modal.classList.remove('is-open');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
 
+    if (!estaAtivo()) {
+      setTimeout(abrirModal, 180);
+    }
+
+    window.addEventListener('pageshow', function (e) {
+      renderizarCardPixCredito();
+      if (e.persisted && !estaAtivo()) {
+        abrirModal();
+      }
+    });
+
     // Clique no bloco Pix Crédito
     if (btnOpen) {
       btnOpen.addEventListener('click', function () {
-        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+        if (estaAtivo()) {
           location.href = 'pix-chave.html';
         } else {
           abrirModal();
