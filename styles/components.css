@@ -686,7 +686,7 @@
 .btn-primary:disabled { background: var(--color-border-subtle); color: var(--color-text-tertiary); cursor: not-allowed; transform: none; }
 .btn-primary svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .cta-footer {
-  padding: var(--space-4) var(--space-4) var(--space-6);
+  padding: var(--space-4) var(--space-4) calc(var(--space-6) + var(--safe-area-bottom) + var(--space-2));
   background: var(--color-bg-app);
   border-top: 1px solid var(--color-divider);
   flex-shrink: 0;
