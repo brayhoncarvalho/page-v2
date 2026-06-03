@@ -149,16 +149,17 @@
       <div class="section-divider" role="separator" aria-hidden="true"></div>
     </section>
 
-    <!-- Pix Parcelado -->
-    <section aria-label="Pix Parcelado">
+    <!-- Pix Crédito -->
+    <section aria-label="Pix Crédito">
       <a
-        href="pix-chave.html"
+        href="javascript:void(0)"
         class="limits-block"
         role="button"
-        aria-label="Pix Parcelado. Limite disponível: R$ 1.000,00. Ver detalhes"
+        id="btn-pix-credito"
+        aria-label="Pix Crédito. Limite disponível: R$ 1.000,00. Ver detalhes"
       >
         <div class="limits-block__header">
-          <h2 class="limits-block__title">Pix Parcelado</h2>
+          <h2 class="limits-block__title">Pix Crédito</h2>
           <span class="limits-block__chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
@@ -168,7 +169,7 @@
             <img src="assets/pix.png" alt="" style="width:20px;height:20px;display:block;filter:brightness(0) invert(40%);" />
           </span>
           <span class="limits-block__label">Limite disponível:</span>
-          <span class="limits-block__dots" id="pix-limite-valor" aria-label="limite do Pix Parcelado">R$ 1.000,00</span>
+          <span class="limits-block__dots" id="pix-limite-valor" aria-label="limite do Pix Crédito">R$ 1.000,00</span>
         </div>
       </a>
       <div class="section-divider" role="separator" aria-hidden="true"></div>
@@ -266,6 +267,61 @@
 
   </main><!-- /app-content -->
 
+  <!-- ============================================================
+       MODAL: Pix Crédito — Promoção de Adesão
+       ============================================================ -->
+  <div
+    id="pix-credito-modal"
+    class="promo-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Conheça o Pix Crédito"
+    aria-hidden="true"
+  >
+    <div class="promo-modal__sheet">
+      <!-- Hero com imagem + gradiente -->
+      <div class="promo-modal__hero">
+        <img
+          src="assets/modal-mulher-pix.png"
+          alt=""
+          class="promo-modal__hero-img"
+          aria-hidden="true"
+        />
+        <div class="promo-modal__hero-overlay" aria-hidden="true"></div>
+        <button
+          class="promo-modal__close"
+          type="button"
+          id="btn-fechar-modal"
+          aria-label="Fechar"
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <div class="promo-modal__hero-text">
+          <p class="promo-modal__hero-title">Pix Crédito: envie agora,<br>pague em até 12x.</p>
+          <p class="promo-modal__hero-sub">Use seu limite de crédito para fazer transferências via Pix.</p>
+        </div>
+      </div>
+      <!-- Corpo -->
+      <div class="promo-modal__body">
+        <button
+          class="btn-primary"
+          type="button"
+          onclick="location.href='pix-credito-adesao.html'"
+        >
+          Quero o Pix Crédito
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+        <p class="promo-modal__note">Sujeito à análise de crédito. Produto exclusivo C&amp;A Pay.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom Navigation -->
   <nav class="bottom-nav" role="navigation" aria-label="Navegação principal">
     <a
@@ -350,5 +406,82 @@
 </div><!-- /app-shell -->
 
 <script src="scripts/app.js"></script>
+<script>
+  /* ============================================================
+     Pix Crédito — Gate de adesão + modal + estado do card
+     ============================================================ */
+  (function () {
+    var STORAGE_KEY = 'ceapay_pix_credito_ativo';
+    var modal       = document.getElementById('pix-credito-modal');
+    var btnOpen     = document.getElementById('btn-pix-credito');
+    var btnFechar   = document.getElementById('btn-fechar-modal');
+
+    /* ----- Estado visual do card ----- */
+    var ativo = localStorage.getItem(STORAGE_KEY) === 'true';
+
+    if (btnOpen && !ativo) {
+      // Troca ícone para cadeado
+      var iconEl = btnOpen.querySelector('.limits-block__icon');
+      if (iconEl) {
+        iconEl.innerHTML =
+          '<svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block;' +
+          'stroke:#6b7280;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">' +
+          '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>' +
+          '<path d="M7 11V7a5 5 0 0 1 10 0v4"/>' +
+          '</svg>';
+      }
+      // Troca label e valor
+      var labelEl = btnOpen.querySelector('.limits-block__label');
+      var valorEl = document.getElementById('pix-limite-valor');
+      if (labelEl) labelEl.textContent = 'Inativo';
+      if (valorEl) {
+        valorEl.textContent = 'Toque para ativar';
+        valorEl.removeAttribute('aria-label');
+      }
+      // Atualiza aria-label do card
+      btnOpen.setAttribute('aria-label', 'Pix Crédito. Inativo. Toque para ativar.');
+    }
+
+    function abrirModal() {
+      modal.classList.add('is-open');
+      modal.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function fecharModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Clique no bloco Pix Crédito
+    if (btnOpen) {
+      btnOpen.addEventListener('click', function () {
+        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+          location.href = 'pix-chave.html';
+        } else {
+          abrirModal();
+        }
+      });
+    }
+
+    // Fechar pelo botão X
+    if (btnFechar) {
+      btnFechar.addEventListener('click', fecharModal);
+    }
+
+    // Fechar ao clicar no backdrop
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) fecharModal();
+      });
+    }
+
+    // Fechar com Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) fecharModal();
+    });
+  })();
+</script>
 </body>
 </html>

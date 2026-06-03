@@ -1,5 +1,5 @@
 /* ============================================================
-   CEA Pay — PIX Parcelado — Lógica JS
+   CEA Pay — PIX Crédito — Lógica JS
    Três módulos independentes ativados por feature-detection no DOM.
    ============================================================ */
 (function () {
@@ -76,8 +76,8 @@
     }
     updateLimitHint(false);
 
-    // Inicializa com R$ 500,00 pré-preenchido
-    var digits = [5, 0, 0, 0, 0];
+    // Inicializa com R$ 250,00 pré-preenchido
+    var digits = [2, 5, 0, 0, 0];
 
     function renderValue() {
       var cents = parseInt(digits.join(''), 10) || 0;

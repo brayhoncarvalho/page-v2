@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&amp;A Pay – Aderir ao Pix Crédito" />
+  <title>C&A Pay — Pix Crédito</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">09:41</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Voltar"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <h1 class="sub-header__title">Pix Crédito</h1>
+
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Fechar e voltar ao início"
+      onclick="location.href='index.html'"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <!-- Cabeçalho da tela -->
+    <div style="padding: 24px 20px 0;">
+      <p style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-brand-blue);margin:0 0 6px;">Novo produto</p>
+      <h2 style="font-size:22px;font-weight:700;color:var(--color-text-primary);margin:0 0 6px;line-height:1.2;">Ative o Pix Crédito</h2>
+      <p style="font-size:14px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Envie Pix usando seu limite C&A Pay e parcele o pagamento em até 12x.</p>
+    </div>
+
+    <!-- Lista de benefícios -->
+    <div class="benefit-list" style="padding: 20px 20px 0;">
+
+      <div class="benefit-item">
+        <span class="benefit-item__icon" aria-hidden="true">
+          <!-- Ícone: enviar dinheiro -->
+          <svg viewBox="0 0 24 24">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+          </svg>
+        </span>
+        <div class="benefit-item__content">
+          <p class="benefit-item__title">Envie Pix agora, pague depois</p>
+          <p class="benefit-item__desc">Use seu limite C&A Pay para enviar Pix mesmo sem saldo disponível.</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <span class="benefit-item__icon" aria-hidden="true">
+          <!-- Ícone: calendário -->
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </span>
+        <div class="benefit-item__content">
+          <p class="benefit-item__title">Parcele em até 12x</p>
+          <p class="benefit-item__desc">Escolha o número de parcelas que cabe no seu bolso na hora de enviar.</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <span class="benefit-item__icon" aria-hidden="true">
+          <!-- Ícone: raio (aprovação rápida) -->
+          <svg viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </span>
+        <div class="benefit-item__content">
+          <p class="benefit-item__title">Aprovação instantânea</p>
+          <p class="benefit-item__desc">Sem burocracia. Seu limite já está disponível para uso imediato.</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <span class="benefit-item__icon" aria-hidden="true">
+          <!-- Ícone: escudo (segurança) -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </span>
+        <div class="benefit-item__content">
+          <p class="benefit-item__title">100% seguro</p>
+          <p class="benefit-item__desc">Cada transação confirmada com sua senha pessoal C&A Pay.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Aviso: criação de conta -->
+   <!-- <div role="note" style="
+      margin: 20px 20px 0;
+      padding: 14px 16px;
+      background: var(--color-brand-blue-light, #EBF0FF);
+      border-left: 3px solid var(--color-brand-blue, #1A56FF);
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    ">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="
+        width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+        fill: none; stroke: var(--color-brand-blue, #1A56FF);
+        stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      ">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-text-primary);">
+        Ao ativar, <strong>criaremos uma conta Pix Crédito</strong> vinculada ao seu CPF cadastrado no C&A Pay. Ela será usada exclusivamente para processar seus envios de Pix parcelado.
+      </p>
+    </div>-->
+
+    <!-- Checkbox de aceite dos termos -->
+    <div style="padding: 20px 20px 8px;">
+      <label class="adesao-checkbox" for="aceite-termos">
+        <input
+          type="checkbox"
+          id="aceite-termos"
+          aria-label="Li e concordo com os Termos de Uso do Pix Crédito"
+        />
+        <span class="adesao-checkbox__box" aria-hidden="true">
+          <svg viewBox="0 0 12 12">
+            <polyline points="2 6 5 9 10 3"/>
+          </svg>
+        </span>
+        <span class="adesao-checkbox__label">
+          Li e concordo com os
+          <a href="pix-credito-termos.html" class="terms-link" onclick="event.stopPropagation()">
+            Termos de Uso do Pix Crédito
+          </a>
+        </span>
+      </label>
+    </div>
+
+    <div class="spacer-bottom" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- CTA fixo -->
+  <div class="cta-footer">
+    <button
+      class="btn-primary"
+      type="button"
+      id="btn-ativar"
+      disabled
+      aria-disabled="true"
+      style="opacity:0.45;cursor:not-allowed;"
+    >
+      Ativar Pix Crédito
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+  </div>
+
+</div><!-- /app-shell -->
+
+<script src="scripts/app.js"></script>
+<script>
+  (function () {
+    var checkbox = document.getElementById('aceite-termos');
+    var btnAtivar = document.getElementById('btn-ativar');
+
+    function sincronizarBotao() {
+      if (checkbox.checked) {
+        btnAtivar.disabled = false;
+        btnAtivar.removeAttribute('aria-disabled');
+        btnAtivar.style.opacity = '1';
+        btnAtivar.style.cursor  = 'pointer';
+      } else {
+        btnAtivar.disabled = true;
+        btnAtivar.setAttribute('aria-disabled', 'true');
+        btnAtivar.style.opacity = '0.45';
+        btnAtivar.style.cursor  = 'not-allowed';
+      }
+    }
+
+    // Sincroniza ao carregar (cobre restauração de bfcache ao voltar dos termos)
+    sincronizarBotao();
+    window.addEventListener('pageshow', sincronizarBotao);
+
+    checkbox.addEventListener('change', sincronizarBotao);
+
+    btnAtivar.addEventListener('click', function () {
+      if (btnAtivar.disabled) return;
+      localStorage.setItem('ceapay_pix_credito_ativo', 'true');
+      location.href = 'pix-credito-ativado.html';
+    });
+  })();
+</script>
+</body>
+</html>

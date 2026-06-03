@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&amp;A Pay – Termos de Uso do Pix Crédito" />
+  <title>C&A Pay — Termos de Uso</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell" id="app">
+
+  <!-- Status Bar -->
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">09:41</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1"  y="16" width="4" height="7" rx="1"/>
+        <rect x="7"  y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6"  width="4" height="17" rx="1"/>
+        <rect x="19" y="1"  width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <!-- Sub-header -->
+  <nav class="sub-header" aria-label="Navegação da página">
+    <button
+      class="sub-header__btn"
+      type="button"
+      aria-label="Voltar"
+      onclick="history.back()"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <h1 class="sub-header__title">Termos de Uso</h1>
+
+    <!-- Spacer para manter título centralizado -->
+    <span style="width:44px;flex-shrink:0;" aria-hidden="true"></span>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="app-content" id="main-content" tabindex="-1">
+
+    <div class="terms-content">
+
+      <h2>1. O que é o Pix Crédito</h2>
+      <p>
+        O Pix Crédito é uma modalidade de pagamento instantâneo com uso de limite de crédito C&A Pay,
+        que permite ao titular da conta realizar transferências Pix utilizando o limite de crédito
+          disponível e parcelar o valor em até 12 (doze) vezes na fatura do cartão C&A Pay. Ao aderir
+          ao produto, o titular autoriza a criação de uma conta Pix Crédito vinculada ao CPF cadastrado
+          no C&A Pay, destinada exclusivamente ao processamento das operações dessa modalidade.
+      </p>
+
+      <h2>2. Elegibilidade</h2>
+      <p>
+        Para utilizar o Pix Crédito é necessário ser titular de conta C&A Pay ativa, possuir limite
+        de crédito disponível e não apresentar restrições cadastrais ou inadimplência junto à
+        C&A Modas S.A. ou às instituições parceiras.
+      </p>
+
+      <h2>3. Taxas e encargos</h2>
+      <p>
+        Cada transação de Pix Crédito está sujeita a cobrança de juros remuneratórios conforme a
+        tabela vigente disponível no aplicativo, calculados pelo sistema Price sobre o valor
+        principal da operação, acrescidos de IOF (Imposto sobre Operações Financeiras) nos
+        percentuais fixados pela legislação federal. As taxas serão informadas antes da confirmação
+        de cada operação.
+      </p>
+
+      <h2>4. Lançamento na fatura</h2>
+      <p>
+        O valor parcelado será incluído nas faturas mensais do cartão C&A Pay a partir do mês
+        subsequente ao da transação. O não pagamento do valor mínimo da fatura no prazo acordado
+        implica cobrança de encargos de mora e multa, além de possível suspensão do limite de
+        Pix Crédito.
+      </p>
+
+      <h2>5. Cancelamento e estorno</h2>
+      <p>
+        Transações de Pix Crédito confirmadas não podem ser canceladas pelo titular após a
+        liquidação. Eventuais devoluções de valores dependem do consentimento do recebedor e
+        seguem as regras do Sistema de Pagamentos Instantâneos do Banco Central do Brasil (PIX/BCB).
+      </p>
+
+      <h2>6. Segurança e responsabilidade</h2>
+      <p>
+        O titular é integralmente responsável pelas transações realizadas com uso da sua senha pessoal.
+        Em caso de suspeita de fraude ou uso não autorizado, entre em contato imediatamente com
+        a Central de Atendimento C&A Pay pelo aplicativo ou pelo telefone disponível no site oficial.
+      </p>
+
+      <h2>7. Alterações dos termos</h2>
+      <p>
+        A C&A Modas S.A. reserva-se o direito de alterar os presentes termos a qualquer momento,
+        com notificação prévia ao titular por meio do aplicativo ou e-mail cadastrado. O uso
+        continuado do Pix Crédito após a notificação implica aceitação automática das novas condições.
+      </p>
+
+      <p style="font-size:11px;color:var(--color-text-tertiary);margin-top:24px;">
+        Versão 1.0 — Junho de 2026. C&A Modas S.A., CNPJ 45.242.914/0001-36.
+        Produto operado em parceria com instituições financeiras autorizadas pelo Banco Central do Brasil.
+      </p>
+
+    </div>
+
+    <div class="spacer-bottom" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- CTA fixo -->
+  <div class="cta-footer">
+    <button
+      class="btn-primary"
+      type="button"
+      onclick="history.back()"
+    >
+      Entendi
+    </button>
+  </div>
+
+</div><!-- /app-shell -->
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

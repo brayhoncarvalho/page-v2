@@ -142,7 +142,7 @@
       <button
         class="profile-menu-item"
         type="button"
-        aria-label="Resetar limite Pix Parcelado"
+        aria-label="Resetar limite Pix Crédito"
         onclick="confirmarResetPix()"
       >
         <span class="profile-menu-item__icon" aria-hidden="true">
@@ -152,8 +152,30 @@
           </svg>
         </span>
         <span class="profile-menu-item__content">
-          <span class="profile-menu-item__label">Resetar limite Pix Parcelado</span>
+          <span class="profile-menu-item__label">Resetar limite Pix Crédito</span>
           <span class="profile-menu-item__value" id="perfil-pix-limite">R$&nbsp;1.000,00</span>
+        </span>
+        <span class="profile-menu-item__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </span>
+      </button>
+
+      <button
+        class="profile-menu-item"
+        type="button"
+        aria-label="Cancelar adesão ao Pix Crédito"
+        onclick="confirmarCancelarPixCredito()"
+      >
+        <span class="profile-menu-item__icon profile-menu-item__icon--danger" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </span>
+        <span class="profile-menu-item__content">
+          <span class="profile-menu-item__label profile-menu-item__label--danger">Cancelar adesão Pix Crédito</span>
+          <span class="profile-menu-item__value" id="perfil-pix-credito-status">Ativo</span>
         </span>
         <span class="profile-menu-item__chevron" aria-hidden="true">
           <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
@@ -420,11 +442,25 @@
     var stored = parseInt(localStorage.getItem('ceapay_pix_limit') || '100000', 10);
     var atual = isNaN(stored) ? 100000 : stored;
     var fmt = 'R$\u00a0' + (atual / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    if (confirm('Resetar o limite do Pix Parcelado?\nLimite atual: ' + fmt + '\n\nO limite voltará para R$\u00a01.000,00.')) {
+    if (confirm('Resetar o limite do Pix Crédito?\nLimite atual: ' + fmt + '\n\nO limite voltará para R$\u00a01.000,00.')) {
       localStorage.removeItem('ceapay_pix_limit');
       var el = document.getElementById('perfil-pix-limite');
       if (el) el.textContent = 'R$\u00a01.000,00';
       alert('Limite resetado com sucesso! R$\u00a01.000,00 disponíveis.');
+    }
+  }
+
+  function confirmarCancelarPixCredito() {
+    var ativo = localStorage.getItem('ceapay_pix_credito_ativo') === 'true';
+    if (!ativo) {
+      alert('Pix Crédito ainda não está ativo na sua conta.');
+      return;
+    }
+    if (confirm('Deseja cancelar a adesão ao Pix Crédito?\nVocê precisará aceitar os termos novamente para utilizá-lo.')) {
+      localStorage.removeItem('ceapay_pix_credito_ativo');
+      var statusEl = document.getElementById('perfil-pix-credito-status');
+      if (statusEl) statusEl.textContent = 'Inativo';
+      alert('Adesão cancelada. O Pix Crédito foi desativado na sua conta.');
     }
   }
 
@@ -435,6 +471,13 @@
     var stored = parseInt(localStorage.getItem('ceapay_pix_limit') || '100000', 10);
     var lim = isNaN(stored) || stored < 0 ? 100000 : stored;
     el.textContent = 'R$\u00a0' + (lim / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  })();
+
+  // Exibe status do Pix Crédito ao carregar
+  (function () {
+    var statusEl = document.getElementById('perfil-pix-credito-status');
+    if (!statusEl) return;
+    statusEl.textContent = localStorage.getItem('ceapay_pix_credito_ativo') === 'true' ? 'Ativo' : 'Inativo';
   })();
 </script>
 </body>
