@@ -19,6 +19,12 @@
 </head>
 <body>
 
+<script>
+  if (localStorage.getItem('ceapay_session_active') !== 'true') {
+    location.replace('login.html');
+  }
+</script>
+
 <div class="app-shell" id="app">
 
   <!-- Status Bar simulada -->
@@ -63,12 +69,12 @@
         </svg>
       </button>
 
-      <!-- Entrar / Transferir -->
-      <button class="app-header__icon-btn" aria-label="Transferir">
+      <!-- Sair da conta -->
+      <button class="app-header__icon-btn" aria-label="Sair da conta" id="btn-logout" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15 3h6v6"/>
-          <path d="M10 14 21 3"/>
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
         </svg>
       </button>
 
@@ -408,13 +414,22 @@
 <script src="scripts/app.js"></script>
 <script>
   /* ============================================================
-     Pix Crédito — Gate de adesão + modal + estado do card
+     Home — sessão + Pix Crédito
      ============================================================ */
   (function () {
+    var SESSION_KEY = 'ceapay_session_active';
     var STORAGE_KEY = 'ceapay_pix_credito_ativo';
     var modal       = document.getElementById('pix-credito-modal');
     var btnOpen     = document.getElementById('btn-pix-credito');
     var btnFechar   = document.getElementById('btn-fechar-modal');
+    var btnLogout   = document.getElementById('btn-logout');
+
+    if (btnLogout) {
+      btnLogout.addEventListener('click', function () {
+        localStorage.removeItem(SESSION_KEY);
+        location.href = 'login.html';
+      });
+    }
 
     function estaAtivo() {
       return localStorage.getItem(STORAGE_KEY) === 'true';

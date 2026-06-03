@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="C&amp;A Pay – Login" />
+  <title>C&A Pay — Entrar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+<div class="app-shell login-screen" id="app">
+
+  <div class="status-bar" role="presentation" aria-hidden="true">
+    <span class="status-bar__time">09:41</span>
+    <div class="status-bar__icons">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1" y="16" width="4" height="7" rx="1"/>
+        <rect x="7" y="11" width="4" height="12" rx="1"/>
+        <rect x="13" y="6" width="4" height="17" rx="1"/>
+        <rect x="19" y="1" width="4" height="22" rx="1" opacity="0.25"/>
+      </svg>
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <line x1="12" y1="20" x2="12.01" y2="20"/>
+      </svg>
+      <div class="status-bar__battery">72</div>
+    </div>
+  </div>
+
+  <header class="login-header" role="banner">
+    <div class="login-header__logo" aria-label="C&A Pay">
+      <img src="logo.png" alt="C&A Pay" />
+    </div>
+  </header>
+
+  <main class="login-main" id="main-content" tabindex="-1">
+    <section class="login-intro" aria-label="Entrar na conta C&A Pay">
+      <h1 class="login-title">Entrar na conta C&amp;A Pay</h1>
+      <p class="login-subtitle">Insira seu CPF e senha para ter acesso às funcionalidades do C&amp;A Pay aqui no app da C&amp;A.</p>
+    </section>
+
+    <form class="login-form" id="login-form" novalidate>
+      <div class="login-field-group">
+        <div class="login-label-row">
+          <label class="login-label" for="login-cpf">CPF</label>
+        </div>
+        <div class="login-input-wrap">
+          <input
+            class="login-input"
+            id="login-cpf"
+            type="text"
+            inputmode="numeric"
+            autocomplete="username"
+            aria-label="CPF"
+            value="412.456.508-90"
+            maxlength="14"
+          />
+        </div>
+      </div>
+
+      <div class="login-field-group">
+        <div class="login-label-row">
+          <label class="login-label" for="login-password">Senha</label>
+          <button class="login-inline-link" type="button" id="btn-forgot-password">Esqueci a senha</button>
+        </div>
+        <div class="login-input-wrap login-input-wrap--password">
+          <input
+            class="login-input"
+            id="login-password"
+            type="password"
+            autocomplete="current-password"
+            aria-label="Senha"
+            value="123456"
+          />
+          <button class="login-password-toggle" type="button" id="btn-toggle-password" aria-label="Mostrar senha" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+              <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="login-footer">
+      <!-- <button class="login-first-access" type="button" id="btn-first-access">Primeiro acesso</button> -->
+      <button class="login-submit" type="submit" form="login-form" id="btn-login">Entrar</button>
+      <p class="login-version">Versão 5.22.0</p>
+    </div>
+  </main>
+
+</div>
+
+<script src="scripts/app.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('login-form');
+    var cpfInput = document.getElementById('login-cpf');
+    var passwordInput = document.getElementById('login-password');
+    var btnLogin = document.getElementById('btn-login');
+    var btnTogglePassword = document.getElementById('btn-toggle-password');
+    var btnForgotPassword = document.getElementById('btn-forgot-password');
+    var btnFirstAccess = document.getElementById('btn-first-access');
+
+    function onlyDigits(value) {
+      return value.replace(/\D/g, '').slice(0, 11);
+    }
+
+    function maskCPF(value) {
+      var digits = onlyDigits(value);
+      var masked = digits;
+      if (digits.length > 3) masked = digits.slice(0, 3) + '.' + digits.slice(3);
+      if (digits.length > 6) masked = masked.slice(0, 7) + '.' + digits.slice(6);
+      if (digits.length > 9) masked = masked.slice(0, 11) + '-' + digits.slice(9);
+      return masked;
+    }
+
+    function syncButton() {
+      var hasCPF = onlyDigits(cpfInput.value).length === 11;
+      var hasPassword = passwordInput.value.trim().length >= 6;
+      var enabled = hasCPF && hasPassword;
+
+      btnLogin.disabled = !enabled;
+      btnLogin.setAttribute('aria-disabled', String(!enabled));
+      btnLogin.classList.toggle('login-submit--disabled', !enabled);
+    }
+
+    cpfInput.addEventListener('input', function () {
+      cpfInput.value = maskCPF(cpfInput.value);
+      syncButton();
+    });
+
+    passwordInput.addEventListener('input', syncButton);
+
+    btnTogglePassword.addEventListener('click', function () {
+      var showing = passwordInput.type === 'text';
+      passwordInput.type = showing ? 'password' : 'text';
+      btnTogglePassword.setAttribute('aria-label', showing ? 'Mostrar senha' : 'Ocultar senha');
+      btnTogglePassword.setAttribute('aria-pressed', String(!showing));
+    });
+
+    btnForgotPassword.addEventListener('click', function () {
+      alert('Recuperação de senha — em breve.');
+    });
+
+    if (btnFirstAccess) {
+      btnFirstAccess.addEventListener('click', function () {
+        alert('Primeiro acesso — em breve.');
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      syncButton();
+      if (btnLogin.disabled) return;
+
+      localStorage.setItem('ceapay_session_active', 'true');
+      localStorage.setItem('ceapay_user_name', 'Suzana R. Sales');
+      localStorage.setItem('ceapay_user_cpf', onlyDigits(cpfInput.value));
+      location.href = 'index.html';
+    });
+
+    syncButton();
+  })();
+</script>
+</body>
+</html>

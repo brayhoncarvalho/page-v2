@@ -434,7 +434,8 @@
 <script>
   function confirmarSaida() {
     if (confirm('Deseja sair da sua conta C&A Pay?')) {
-      location.href = 'index.html';
+      localStorage.removeItem('ceapay_session_active');
+      location.href = 'login.html';
     }
   }
 
